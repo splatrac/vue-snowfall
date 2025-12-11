@@ -5,7 +5,7 @@ export function useSnowfall() {
     // Ranges for the random generators (same as the previous defaults)
     timeRange: { min: 20, max: 29 },   // seconds the flake falls
     posRange: { min: 4, max: 93 },   // % across the viewport
-    sizeRange: { min: 0.10, max: 1.09 } // scale factor
+    sizeRange: { min: 10, max: 109 } // scale factor
   };
 
   const addStyles = () => {
@@ -50,17 +50,17 @@ export function useSnowfall() {
   }
 
   const createSnowflake = ({
-    time = { min: 20, max: 29 },
-    pos = { min: 4, max: 93 },
-    size = { min: 10, max: 100 }
+    timeRange,
+    posRange,
+    sizeRange
   }) => {
     const flakeSVG = `
       <svg width="100%" height="100%" viewBox="0 0 50 55" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M42.2911 35.3845L50 39.8113L48.2293 42.8628L40.4446 38.3917L42.4879 45.9679L39.0858 46.8756L36.4208 36.9513L36.1578 35.9111L26.8388 30.5397V41.3708L27.522 42.0754L34.8573 49.3969L32.3809 51.8771L26.8388 46.3317V55H23.3558V46.2429L17.7319 51.7892L15.1906 49.309L22.5264 42.0443L23.3558 41.2825V30.5397L13.9388 35.9111L13.5949 36.9513L10.9216 46.8756L7.51561 45.9679L9.55669 38.3917L1.77114 42.8628L0 39.8113L7.70849 35.3845L0.0914308 33.3543L1.004 29.9663L11.0592 32.6462L12.0271 32.9043L21.4575 27.4887L12.1041 22.1174L11.0583 22.3963L1.08106 25.0553L0.168494 21.6674L7.78555 19.6372L0.000870706 15.1657L1.77289 12.1143L9.48355 16.5411L7.44682 8.965L10.8611 8.05728L13.5705 18.0591L13.8618 19.0218L23.3558 24.4373V13.6946L22.5425 12.9332L15.191 5.66803L17.7162 3.18783L23.3558 8.73417V0H26.8388V8.64539L32.3891 3.09906L34.8569 5.57925L27.5133 12.9012L26.8388 13.6062V24.4373L36.2349 19.0218L36.46 18.0591L39.1541 8.05728L42.5602 8.965L40.5191 16.5411L48.2276 12.1143L49.9987 15.1657L42.2131 19.6367L49.8298 21.667L48.9172 25.0549L38.9399 22.3958L37.8941  22.1169L28.5416 27.4883L37.9716 32.9043L38.9395 32.6462L48.9947 29.9663L49.9073 33.3543L42.2911 35.3845Z" fill="#fff"/>
       </svg>`
-    const fallingTime = Math.floor(Math.random() * (time.max - time.min)) + time.min
-    const flakePos = Math.floor(Math.random() * (pos.max - pos.min)) + pos.min
-    const flakeSize = (Math.floor(Math.random() * (size.max - size.min)) + size.min) / 100
+    const fallingTime = Math.floor(Math.random() * (timeRange.max - timeRange.min)) + timeRange.min
+    const flakePos = Math.floor(Math.random() * (posRange.max - posRange.min)) + posRange.min
+    const flakeSize = (Math.floor(Math.random() * (sizeRange.max - sizeRange.min)) + sizeRange.min) / 100
     const snowflake = htmlToElement(
       `<div 
         class='flake' 
