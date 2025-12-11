@@ -2,6 +2,9 @@
   "name": "@splatrac/vue-snowfall",
   "version": "1.1.0",
   "description": "A Vue 3 composable for creating snowfall effects",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "module": "index.js",
   "keywords": [
@@ -15,13 +18,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NooBiToo/vue-snowfall.git"
+    "url": "git+https://github.com/splatrac/vue-snowfall.git"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
-}
 }
