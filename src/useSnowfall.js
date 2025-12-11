@@ -93,8 +93,12 @@ export function useSnowfall() {
       sizeRange = DEFAULT_OPTIONS.sizeRange,
       interval = 500
     } = userOptions;
+    const finalOptions = { timeRange, posRange, sizeRange };
 
     addStyles()
+
+    if (flakeIntervalId) clearInterval(flakeIntervalId)
+
     flakeIntervalId = setInterval(() => {
       createSnowflake(finalOptions)
       removeSnowflakes()
