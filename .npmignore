@@ -1,0 +1,10 @@
+# .npmignore
+.git/
+.gitignore
+node_modules/
+src/**/*.spec.*
+src/**/*.test.*
+coverage/
+dist/
+*.log
+*.tmp
